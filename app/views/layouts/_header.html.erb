@@ -1,0 +1,20 @@
+    <header>
+      <div class = "header-left">
+        <%= link_to image_tag("logo.png", class:"logo"), root_path %>
+        <form method = "get" class = "search">
+          <div class = "area">
+            <i class="fas fa-map-marker-alt"></i>
+            <input type = "text" name = "area" placeholder = "エリア"></input>
+          </div>
+          <div class = "keyward">
+            <i class="fas fa-search"></i>
+            <input type = "text" name = "keyword" placeholder = "キーワード"></input>
+          </div>
+        </form>
+      </div>
+      <div class = "header-right">
+        <div class = "account-btn">
+          <%= link_to "ログイン", "#", {class: "sign-in btn"} %>
+          <%= link_to "登録する", "#", {class: "sign-up btn"} %>
+      </div>
+    </header>
