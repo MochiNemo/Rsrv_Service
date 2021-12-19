@@ -5,16 +5,17 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
-gem 'rails',          '~> 5.0.3'
-gem 'bcrypt',         '3.1.11'
-gem 'puma',           '~> 3.0'
-gem 'sass-rails',     '~> 5.0'
-gem 'uglifier',       '>= 1.3.0'
-gem 'coffee-rails',   '~> 4.2'
+gem 'rails', '~> 5.0.3'
+gem 'bcrypt', '~> 3.1.11'
+gem 'puma', '~> 3.0'
+gem 'sass-rails', '~> 5.0'
+gem 'uglifier', '>= 1.3.0'
+gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
-gem 'turbolinks',     '~> 5'
-gem 'jbuilder',       '~> 2.5'
+gem 'turbolinks', '~> 5'
+gem 'jbuilder', '~> 2.5'
+gem 'bootsnap', '>= 1.4.2', require: false
+gem 'rails-i18n'
 
 
 group :development, :test do
@@ -31,11 +32,9 @@ end
 
 group :test do
   gem 'rails-controller-testing', '1.0.2'
-  gem 'minitest-reporters',       '1.1.14'
-  gem 'guard',                    '2.13.0'
-  gem 'guard-minitest',           '2.4.4'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'devise' 

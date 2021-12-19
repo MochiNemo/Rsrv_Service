@@ -1,0 +1,21 @@
+<div class = "profile-container">
+
+  <%= render "shared/aside" %>
+
+  <div class = "profile-main">
+    <h3 class = "contents">アカウント</h3>
+      <table>
+        <tr class = "contents">
+          <th>メールアドレス</th>
+          <td><%= @user.email %></td>
+        </tr>
+        <tr class = "contents">
+          <th>パスワード</th>
+          <td><%= @user.password %></td>
+        </tr>
+      </table>
+      <div class = "contents">
+        <%= link_to "編集", edit_user_registration_path, class: "update-btn" %>
+      </div>
+  </div>
+</div>
