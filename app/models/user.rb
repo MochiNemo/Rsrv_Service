@@ -13,5 +13,6 @@ class User < ApplicationRecord
     validates :image_name,    presence: true
   end
   
-
+  has_many :rooms
+  has_many :rsrvs
 end

@@ -17,7 +17,7 @@
   list-style: none;
   text-decoration: none;
   text-decoration: none;
-  color: black;
+  color: #333;;
 }
 
 body {
@@ -160,3 +160,35 @@ footer {
   }
 }
 
+@media screen and (max-width:991px) {
+  header {
+    .header-left {
+      .search {
+        display: none;
+      }
+    }
+  }
+}
+
+@media screen and (max-width:575px) {
+  header {
+    flex-direction: column;
+    height: 140px;
+    align-items: center;
+    .header-left {
+      padding-left: 0;
+    }
+    .header-right {
+      padding-right: 0;
+      .user-name-icon {
+        p {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+.fidden {
+  display: none;
+}

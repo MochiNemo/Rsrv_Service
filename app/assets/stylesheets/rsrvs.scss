@@ -1,0 +1,38 @@
+$_list-line:  #eaedef;
+
+.rsrvs-container {
+  h3 {
+    font-size: 24px;
+    padding: 30px 50px;
+    font-weight: normal;
+  }
+  table {
+    margin: 10px 30px 60px 30px;
+    td {
+      padding: 10px 20px;
+      border-bottom: 1px solid $_list-line;
+    }
+    .introduction {
+      max-width: 400px;
+    }
+    .price {
+      max-width:120px;
+      text-align: right;
+      &::before {
+        content: "¥";
+        padding-right: 3px;
+      }
+    }
+    a {
+      font-weight: bold;
+      color: #4a90e2;
+      text-decoration:underline
+    }
+    img {
+      margin: 0 auto;
+      height: 140px;
+      width: 240px;
+      object-fit: cover;
+    }
+  }
+}

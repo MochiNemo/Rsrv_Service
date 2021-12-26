@@ -12,6 +12,7 @@ module RsrvService
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
     config.action_controller.permit_all_parameters = true
+    config.time_zone = 'Tokyo'
     config.i18n.default_locale = :ja
     config.action_view.field_error_proc = Proc.new { |html_tag, instance| html_tag }
   end

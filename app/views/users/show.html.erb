@@ -1,8 +1,8 @@
-<div class = "profile-container">
+<div class = "shows-container">
   
   <%= render "shared/aside" %>
 
-  <div class = "profile-main">
+  <div class = "shows-main">
     <h3 class = "contents">プロフィール</h3>
     
     <%= render "devise/shared/error_messages", resource: @user %>
@@ -18,11 +18,7 @@
       <div class = "contents">
         <%= f.label :image_name, class: "essential" %>
         <div class = "form">
-          <% if @user.errors.any? && @user.image_name == "" %>
-            <div class = "error">
-              <%= f.file_field :image_name, accept: 'image/jpeg,image/gif,image/png', class: "icon-change" %>
-            </div>
-          <% else %>
+          <%= content_tag(:div, class: ("error" if @user.errors.any? && @user.image_name == "" )) do  %>
             <%= f.file_field :image_name, accept: 'image/jpeg,image/gif,image/png', class: "icon-change" %>
           <% end %>
         </div>
@@ -30,24 +26,16 @@
       <div class = "contents">
         <%= f.label :name, class: "essential" %>
         <div class = "form">
-          <% if @user.errors.any? && @user.name == "" %>
-            <div class = "error">
-              <%= f.text_field:name, :placeholder => "ユーザー名", class: "name-change" %>
-            </div>
-          <% else %>
-            <%= f.text_field:name, :placeholder => "ユーザー名", class: "name-change" %>
+          <%= content_tag(:div, class: ("error" if @user.errors.any? && @user.name == "" )) do  %>
+            <%= f.text_field:name, :placeholder => "ユーザー名", class: "text" %>
           <% end %>
         </div>
       </div>
       <div class = "contents">
         <%= f.label :introduction, class: "essential" %>
         <div class = "form">
-          <% if @user.errors.any? && @user.introduction == "" %>
-            <div class = "error">
-              <%= f.text_area:introduction, :placeholder => "自己紹介を入力", class: "introduction-change"%>
-            </div>
-          <% else %>
-            <%= f.text_area:introduction, :placeholder => "自己紹介を入力", class: "introduction-change"%>
+          <%= content_tag(:div, class: ("error" if @user.errors.any? && @user.introduction == "" )) do  %>
+            <%= f.text_area:introduction, :placeholder => "自己紹介を入力", class: "text-area" %>
           <% end %>
         </div>
       </div>

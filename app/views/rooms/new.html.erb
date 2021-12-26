@@ -1,0 +1,52 @@
+<div class = "shows-container">
+  
+  <%= render "shared/aside" %>
+
+  <div class = "shows-main">
+    <h3 class = "contents">ルーム情報登録</h3>
+    
+    <%= form_for @room do |f| %>
+      <div class = "contents">
+        <%= f.label :name, class: "essential" %>
+        <div class = "form">
+          <%= content_tag(:div, class: ("error" if @room.errors.any? && @room.name == "" )) do  %>
+            <%= f.text_field:name, :placeholder => "ルーム名", class: "text" %>
+          <% end %>
+        </div>
+      </div>
+      <div class = "contents">
+        <%= f.label :introduction, class: "essential" %>
+        <div class = "form">
+          <%= content_tag(:div, class: ("error" if @room.errors.any? && @room.introduction == "" )) do  %>
+            <%= f.text_area:introduction, :placeholder => "ルーム説明を入力", class: "text-area"%>
+          <% end %>
+        </div>
+      </div>
+      <div class = "contents">
+        <%= f.label :price, class: "essential" %>
+        <div class = "form">
+          <%= content_tag(:div, class: ("error" if @room.errors.any? && @room.price == nil )) do  %>
+            <%= f.number_field:price, :placeholder => "１日あたりの料金を入力", class: "text" %>
+          <% end %>
+        </div>
+      </div>
+      <div class = "contents">
+        <%= f.label :address, class: "essential" %>
+        <div class = "form">
+          <%= content_tag(:div, class: ("error" if @room.errors.any? && @room.address == "" )) do  %>
+            <%= f.text_field:address, :placeholder => "住所を入力", class: "text" %>
+          <% end %>
+        </div>
+      </div>
+      <div class = "contents">
+        <%= f.label :room_image, class: "essential" %>
+        <div class = "form">
+          <%= content_tag(:div, class: ("error" if @room.errors.any? && @room.room_image == nil )) do  %>
+            <%= f.file_field:room_image, accept: 'image/jpeg,image/gif,image/png' %>
+          <% end %>
+        </div>
+      </div>
+      <%= f.submit "登録", 'data-disable-with' => false, class: "update-btn" %>
+      <% end %>
+  </div>
+</div>

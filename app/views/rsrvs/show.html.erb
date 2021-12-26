@@ -1,0 +1,36 @@
+<div class = "rsrvs-container">
+
+  <div class = "rsrvs-main">
+    <h3 class = "contents">予約済みルーム一覧</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>ルーム画像</th>
+          <th>ルーム名</th>
+          <th>ルーム紹介</th>
+          <th>合計料金</th>
+          <th>開始日</th>
+          <th>終了日</th>
+          <th>予約確定日時</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @rsrvs.each do |rsrv| %>
+          <tr>
+            <td>
+              <%= content_tag(:a,  :href=> "rooms/#{rsrv.room_id}", class: "image") do %>
+                <%= image_tag rsrv.room.room_image.url %>
+              <% end %>
+            </td>
+            <td><%= link_to "#{rsrv.room.name}", "rooms/#{rsrv.room_id}" %></td>
+            <td class = "introduction"><%= rsrv.room.introduction %></td>
+            <td class = "price" ><%= rsrv.price %></td>
+            <td class = "start" ><%= rsrv.start_date.to_s(:datetime_jp) %></td>
+            <td class = "end" ><%= rsrv.end_date.to_s(:datetime_jp) %></td>
+            <td><%= rsrv.created_at.to_s(:datetime_jp) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table> 
+  </div>
+</div>

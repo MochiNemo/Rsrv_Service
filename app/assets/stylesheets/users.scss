@@ -22,14 +22,9 @@ input[type = "email"]:focus ,
 input[type = "password"]:focus ,
 textarea:focus {
   transition: all 0.05s;
-}
-
-input[type="text"]:focus ,
-input[type = "email"]:focus ,
-input[type = "password"]:focus ,
-textarea:focus {
   outline:solid 3px #add8e6;
 }
+
 
 .essential::after {
   width: 45px;
@@ -124,81 +119,5 @@ textarea:focus {
       }
     }
     
-  }
-}
-
-
-.profile-container {
-  display: flex;
-  height: calc(100vh - 70px - 178px);
-  .profile-main {
-    width: 100%;
-    max-width: 880px;
-    margin: 30px auto;
-    padding: 0 20px;
-    border: 1px solid $_profile-line;
-    h3 {
-      @include profile_border;
-    }
-    .icon {
-      width: 65px;
-      height: 65px;
-      border-radius: 50%;
-      margin: 0 auto;
-    }
-    .contents{
-      @include profile_border;
-      display: flex;
-      justify-content: start;
-      .essential {
-        width: 300px;
-        font-size: 16px;
-        font-weight: bold;
-        margin-left: 10px;
-      }
-      .form {
-        width: 100%;
-        font-size: 16px;
-        font-weight: normal;
-        padding-bottom: 10px;
-      }
-      .name-change {
-        width: 90%;
-        height: 24px;
-        margin: 0 5px;
-        padding: 5px;
-        border-radius: 5px;
-        border: 1px solid #ced4da;
-      }
-      .introduction-change {
-        width: 90%;
-        height: 150px;
-        margin: 0 5px;
-        padding: 5px;
-        border-radius: 5px;
-        border: 1px solid #ced4da;
-      }
-      .error {
-        background-color: red;
-        width: 100%;
-        height: 100%;
-      }
-    }
-    .profile-icon {
-      text-align: center;
-    }
-    .update-btn {
-      display: block;
-      width: 120px;
-      height: $_sign-form-height;
-      font-size: 16px;
-      color: white;
-      line-height: $_sign-form-height;
-      background-color: #4a90e2;
-      border: none;
-      border-radius: $_sign-form-radius;
-      border-color: #007bff;
-      text-align: center;
-    }
   }
 }

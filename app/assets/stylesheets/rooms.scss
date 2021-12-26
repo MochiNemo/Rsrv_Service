@@ -1,0 +1,335 @@
+$_confirm-btn-height: 36px;
+$_list-line:  #eaedef;
+
+@mixin input_layout {
+  height: 24px;
+  width: calc( 100% - 12px);
+  margin: 5PX 0;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ced4da;
+}
+
+@mixin confirm_border {
+  width: 100%;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid $_list-line;
+}
+
+
+.post-container {
+  h3 {
+    font-size: 24px;
+    padding: 30px 50px;
+    font-weight: normal;
+  }
+  table {
+    margin: 10px 0 60px 60px;
+    td {
+      padding: 10px 20px;
+      border-bottom: 1px solid $_list-line;
+    }
+    .introduction {
+      max-width: 400px;
+    }
+    .price {
+      max-width:120px;
+      text-align: right;
+      &::before {
+        content: "¥";
+        padding-right: 3px;
+      }
+    }
+    a {
+      font-weight: bold;
+      color: #4a90e2;
+      text-decoration:underline
+    }
+    img {
+      margin: 0 auto;
+      height: 140px;
+      width: 240px;
+      object-fit: cover;
+    }
+  }
+}
+
+.room-container {
+  .room-main {
+    max-width: 1140px;
+    width: 100%;
+    margin: 40px auto;
+    display: flex;
+    .left-info {
+      width: calc(100% / 3 * 2);
+      padding: 0 15px;
+      .room-image {
+        img {
+          width: 100%;
+        }
+      }
+      .icon-wrap {
+        width: 100%;
+        padding: 10px 0;
+        border-bottom: 1px solid $_list-line;
+      }
+      .intro-wrap {
+        width: 100%;
+        padding: 40px 0;
+        border-bottom: 1px solid $_list-line;
+        margin-bottom: 30px
+      }
+      .icon {
+        display: block;
+        width: 65px;
+        height: 65px;
+        border-radius: 50%;
+        margin: 0 10px;
+        padding: 4px;
+      }
+    }
+    .right-info {
+      width: calc(100% / 3);
+      padding: 0 20px;
+      .right-cont {
+        border: 1px solid $_list-line;
+        padding: 0 20px 20px;
+        .error-info {
+          padding: 10px;
+          margin: 10px;
+          font-size: 13px;
+          border: 2px solid #c00;
+          background-color: #f0f0f0;
+          text-align: left;
+          li {
+            color: red;
+          }
+        }
+        .price {
+          margin-top: 20px;
+        }
+        .content {
+          margin-bottom: 20px;
+        }
+        form {
+          .content {
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            input {
+              @include input_layout;
+            }
+          }
+        }
+      }
+      .price {
+        font-size: 20px;
+        &::before {
+          content: "¥";
+          padding-right: 3px;
+        }
+        &::after {
+          content: "/日";
+          padding-left: 3px;
+        }
+      }
+    }
+    .rsrv-btn {
+      width: 100%;
+      height: $_confirm-btn-height;
+      font-size: 16px;
+      color: white;
+      background-color: #4a90e2;
+      border: 1px solid #4a90e2;
+      border-radius: 5px;
+      text-align: center;
+      margin-bottom: 20px;
+      cursor: pointer;
+    }
+  }
+}
+
+
+.confirm-container {
+  width: 100%;
+  min-height: calc(100vh - 70px - 178px);
+  .confirm-main {
+    max-width: 600px;
+    padding: 20px;
+    margin: 30px auto;
+    border: 1px solid $_list-line;
+    h3 {
+      font-size: 24px;
+      font-weight: normal;
+      @include confirm_border;
+    }
+    table {
+      width: 100%;
+    }
+    p {
+      display: block;
+      font-size: 16px;
+      padding-left: 20px;
+      &::before {
+        content: "¥";
+        padding-right: 3px;
+      }
+      &::after {
+        content: "/日";
+        padding-left: 3px;
+      }
+    }
+    .content{
+      @include confirm_border;
+      display: flex;
+      justify-content: start;
+      th {
+       flex: 1;
+       text-align: left;
+       padding-left: 20px;
+      }
+      td {
+       flex: 3;
+      }
+      .pnum::after{
+        margin-left: 3px;
+        content: "人";
+      }
+      .date::after{
+        margin-left: 3px;
+        content: "日";
+      }
+      .price::after{
+        margin-left: 3px;
+        content: "円";
+      }
+    }
+    .last {
+      border-bottom: none;
+    }
+    .send-form {
+      width: 100%;
+      height: $_confirm-btn-height;
+      font-size: 16px;
+      color: white;
+      background-color: #4a90e2;
+      border: 1px solid #4a90e2;
+      border-radius: 5px;
+      text-align: center;
+      margin-bottom: 20px;
+      cursor: pointer;
+    }
+    .back-form {
+      width: 100%;
+      height: $_confirm-btn-height;
+      font-size: 16px;
+      color: white;
+      background-color: #6c757d;
+      border: 1px solid #6c757d;
+      border-radius: 5px;
+      text-align: center;
+      cursor: pointer;
+    }
+  }
+}
+
+
+.search-container {
+  width: 100%;
+  h3 {
+    font-size: 24px;
+    padding: 30px 60px;
+    font-weight: normal;
+  }
+  .search-main {
+    .rooms {
+      width: calc(100% - 120px);
+      margin: 0 50px;
+      display: flex;
+      flex-wrap: wrap;
+      .room {
+        width: calc(25% - 22px);
+        margin: 10px;
+        border: 1px solid #e2e2e2;
+        .image {
+          width: 100%;
+          height: 180px;
+          img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+          }
+        }
+        .name {
+          margin: 15px 15px 5px;
+          font-size: 18px;
+          font-weight: bold;
+          a {
+            color: #909090 !important;
+          }
+        }
+        .address {
+          margin: 5px 15px;
+          font-weight: bold;
+          p {
+            font-size: 18px;
+          }
+        }
+        .price {
+          margin: 5px 15px;
+          p {
+            text-align: right;
+            fint-size: 18px;
+            &::before {
+              content: "¥";
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+@media screen and (max-width:1199px) {
+  .room-container {
+    .room-main {
+      max-width: 960px;
+    }
+  }
+.room {
+  width: calc(33% - 22px) !important;
+}
+}
+
+@media screen and (max-width:991px) {
+  .room-container {
+    .room-main {
+      max-width: 720px;
+    }
+  }
+  .room {
+  width: calc(50% - 22px) !important;
+  }
+}
+
+@media screen and (max-width:767px ) {
+  .room-container {
+    .room-main {
+      max-width: 540px;
+      flex-direction: column;
+      .left-info {
+        width: 100%;
+      }
+      .right-info {
+        width: 100%;
+      }
+    }
+  }
+}
+@media screen and (max-width:575px) {
+  .room {
+  width: calc(100% - 22px) !important;
+  }
+}

@@ -1,0 +1,26 @@
+<div class = "search-container">
+
+  <div class = "search-main">
+    <h3 class = "contents">検索結果：<%= @count %>件</h3>
+    <div class = "rooms">
+      <% @rooms.each do |room| %>
+        <div class = "room">
+          <div class = "image">
+            <%= content_tag(:a,  :href=>"#{room.id}") do %>
+              <%= image_tag room.room_image.url %>
+            <% end %>
+          </div>
+          <div class = "name">
+            <%= link_to "#{room.name}", room %>
+          </div>
+          <div class = "address">
+           <p><%= room.address %></p>
+          </div>
+          <div class = "price">
+            <p><%= room.price %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
