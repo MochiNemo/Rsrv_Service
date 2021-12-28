@@ -1,0 +1,123 @@
+
+//*****************************************************************************//
+//グローバル変数
+//*****************************************************************************//
+$_sign-form-width: 350px;
+$_sign-form-height: 36px;
+$_essential-width: 15px;
+$_sign-form-radius: 5px;
+$_profile-line:  #eaedef;
+
+//*****************************************************************************//
+//mixin定義
+//*****************************************************************************//
+@mixin profile_border {
+  width: 100%;
+  padding: 20px 0 10px;
+  border-bottom: 1px solid $_profile-line;
+}
+
+input[type="text"]:focus ,
+input[type = "email"]:focus ,
+input[type = "password"]:focus ,
+textarea:focus {
+  transition: all 0.05s;
+  outline:solid 3px #add8e6;
+}
+
+
+.essential::after {
+  width: 45px;
+  margin: 0 5px;
+  padding: 4px;
+  content: "必須";
+  color: white;
+  background-color: #ff0000a8;
+  font-size: 12px;
+  border-radius:5px;
+}
+
+//*****************************************************************************//
+// アカウント登録、ログイン
+//*****************************************************************************//
+.sign-container {
+  max-width: 550px;
+  margin: 50px auto;
+  padding: 30px;
+  box-shadow: rgba(21,27,38,0.15) 0px 1px 3px 0px;
+  text-align: center;
+  .title {
+    font-size: 16px;
+    font-weight: normal;
+  }
+  .edit-title {
+    font-size: 32px;
+    font-weight: normal;
+  }
+  .contents {
+    max-width: $_sign-form-width;
+    margin: 20px auto;
+    .entry-field{
+      width: 100%;
+      .form {
+        margin: 10px auto 0;
+        label {
+          color: #333;
+        }
+        input {
+          width: calc(100% - 20px - 2px);
+          padding: 0 10px;
+          margin-top: 5px;
+          font-size: 16px;
+          border-radius: $_sign-form-radius;
+          border: 1px solid #ced4da;
+          height: calc(#{$_sign-form-height - 2px});
+        }
+      }
+      li {
+        height: $_sign-form-height;
+        width: 100%;
+        display: flex;
+        margin: 10px auto 0;
+        justify-content: center;
+        align-items: center;
+        input {
+          width: calc(100% - 45px);
+          font-size: 16px;
+          border-radius: $_sign-form-radius;
+          border: 1px solid #ced4da;
+          height: calc(#{$_sign-form-height - 2px});
+        }
+      }
+    }
+    
+    .move-link {
+      input {
+        width: 100%;
+        height: $_sign-form-height;
+        border: none;
+        border-radius: $_sign-form-radius;
+        background-color: #4a90e2;
+        border-color: #007bff;
+        margin: 20px 0;
+        font-size: 16px;
+        color: white;
+      }
+      .link {
+        color: #4a90e2;
+      }
+      .back-btn {
+        display: block;
+        width: 100%;
+        height: $_sign-form-height;
+        line-height: $_sign-form-height;
+        border: 1px solid black;
+        border-radius: $_sign-form-radius;
+        background-color: white;
+        font-size: 16px;
+        color: #4a90e2;
+      }
+    }
+    
+  }
+}

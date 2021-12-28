@@ -1,0 +1,55 @@
+<div class = "confirm-container">
+
+  <div class = "confirm-main">
+    <h3 class = "content">予約内容確認</h3>
+    
+      <div class = "contents">
+        <p class = "content"><%= @room.price %></p>
+        <table>
+          <tr class = "content">
+            <th>開始日：</th>
+            <td><%= @rsrv.start_date.to_s(:datetime_jp) %></td>
+          </tr>
+          <tr class = "content">
+            <th>終了日：</th>
+            <td><%= @rsrv.end_date.to_s(:datetime_jp) %></td>
+          </tr>
+          <tr class = "content">
+            <th>使用日数：</th>
+            <td class = "date"><%= @totaldate.to_i %></td>
+          </tr>
+          <tr class = "content">
+            <th>人数：</th>
+            <td class = "pnum"><%= @rsrv.person_num %></td>
+          </tr>
+          <tr class = "content last">
+            <th>合計金額：</th>
+            <td class = "price"><%= @rsrv.price %></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <%= form_for @rsrv, method: :post, url: reservations_complete_path do |f| %>
+          <%= f.hidden_field :start_date %>
+          <%= f.hidden_field :end_date %>
+          <%= f.hidden_field :person_num %>
+          <%= f.hidden_field :price %>
+          <%= f.hidden_field :user_id, value: current_user.id %>
+          <%= f.hidden_field :room_id, value: @room.id %>
+          <%= f.submit '予約を確定',class: "send-form" %>
+        <% end %>
+      </div>
+      <div class = "back-form" >
+        <%= form_for @rsrv, method: :post, url: reservations_back_path do |f| %>
+          <%= f.hidden_field :start_date %>
+          <%= f.hidden_field :end_date %>
+          <%= f.hidden_field :person_num %>
+          <%= f.hidden_field :user_id, value: current_user.id %>
+          <%= f.hidden_field :room_id, value: @room.id %>
+          <%= f.submit 'ルーム詳細に戻る',class: "back-form" %>
+        <% end %>
+      </div>
+      
+      
+    </div>
+</div>

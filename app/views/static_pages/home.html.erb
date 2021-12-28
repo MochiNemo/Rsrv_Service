@@ -1,0 +1,44 @@
+<div class = "top">
+  <div class = "container">
+    <div class = "form-area">
+      <p>Potepan Shareでまだ体験したことのない旅をしよう</p>
+        <%= form_tag(rooms_search_path, :method => 'get', class: "search") do %>
+          <%= label_tag "エリア" %>
+          <%= text_field_tag :area, nil, placeholder: "東京", class: 'area' %>
+          <%= submit_tag '探す', class: "search" %>
+        <% end %>
+    </div>
+  </div>
+</div>
+
+<div class = "recommend" >
+  <div class = "container">
+    <h3>おすすめのエリア</h3>
+    <ul class ="recommend-area">
+      <li class = "area">
+        <%= content_tag(:a,  :href=>"rooms/search?area=東京", class: "image") do %>
+          <%= image_tag "img_tokyo.jpeg" %>
+        <% end %>
+        <p>東京</p>
+      </li>
+      <li class = "area">
+        <%= content_tag(:a,  :href=>"rooms/search?area=大阪", class: "image") do %>
+          <%= image_tag "img_osaka.jpeg" %>
+        <% end %>
+        <p>大阪</p>
+      </li>
+      <li class = "area">
+        <%= content_tag(:a,  :href=>"rooms/search?area=京都", class: "image") do %>
+          <%= image_tag "img_kyoto.jpeg" %>
+        <% end %>
+        <p>京都</p>
+      </li>
+      <li class = "area">
+        <%= content_tag(:a,  :href=>"rooms/search?area=札幌", class: "image") do %>
+          <%= image_tag "img_sapporo.jpeg" %>
+        <% end %>
+        <p>札幌</p>
+      </li>
+    </ul>
+  </div>
+</div>

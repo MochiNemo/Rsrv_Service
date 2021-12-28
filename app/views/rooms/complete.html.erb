@@ -1,0 +1,27 @@
+<div class = "confirm-container">
+
+  <div class = "confirm-main">
+    <h3 class = "contents">予約内容確認</h3>
+    
+      <div class = "contents">
+        <table>
+          <tr class = "content">
+            <th>予約した部屋</th>
+            <td><%= @room.name %></td>
+          </tr>
+          <tr class = "content">
+            <th>開始日</th>
+            <td><%= @rsrv.start_date.to_s(:datetime_jp) %></td>
+          </tr>
+          <tr class = "content">
+            <th>終了日</th>
+            <td><%= @rsrv.end_date.to_s(:datetime_jp) %></td>
+          </tr>
+          <tr class = "content last">
+            <th>価格</th>
+            <td class = "price"><%= @rsrv.price %></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+</div>

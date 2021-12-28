@@ -1,0 +1,45 @@
+<div class = "shows-container">
+  
+  <%= render "shared/aside" %>
+
+  <div class = "shows-main">
+    <h3 class = "contents">プロフィール</h3>
+    
+    <%= render "devise/shared/error_messages", resource: @user %>
+    
+    <%= form_for @user, url: users_profile_path, html: {method: "patch"} do |f| %>
+      <div class = "profile-icon contents">
+        <% if @user.image_name? %>
+          <%= image_tag @user.image_name.url, class: "icon" %>
+        <% else %>
+          <%= image_tag "/assets/default_icon.jpeg", class: "icon" %>
+        <% end %>
+      </div>
+      <div class = "contents">
+        <%= f.label :image_name, class: "essential" %>
+        <div class = "form">
+          <%= content_tag(:div, class: ("error" if @user.errors.any? && @user.image_name == "" )) do  %>
+            <%= f.file_field :image_name, accept: 'image/jpeg,image/gif,image/png', class: "icon-change" %>
+          <% end %>
+        </div>
+      </div>
+      <div class = "contents">
+        <%= f.label :name, class: "essential" %>
+        <div class = "form">
+          <%= content_tag(:div, class: ("error" if @user.errors.any? && @user.name == "" )) do  %>
+            <%= f.text_field:name, :placeholder => "ユーザー名", class: "text" %>
+          <% end %>
+        </div>
+      </div>
+      <div class = "contents">
+        <%= f.label :introduction, class: "essential" %>
+        <div class = "form">
+          <%= content_tag(:div, class: ("error" if @user.errors.any? && @user.introduction == "" )) do  %>
+            <%= f.text_area:introduction, :placeholder => "自己紹介を入力", class: "text-area" %>
+          <% end %>
+        </div>
+      </div>
+      <%= f.submit "更新", 'data-disable-with' => false, class: "update-btn" %>
+      <% end %>
+  </div>
+</div>

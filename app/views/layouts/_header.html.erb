@@ -1,0 +1,60 @@
+<header>
+  <div class = "header-left">
+    <%= link_to image_tag("logo.png", class: "logo"), root_path %>
+    <%= form_tag(rooms_search_path, :method => 'get', class: "search") do %>
+      <div class = "area">
+        <i class="fas fa-map-marker-alt"></i>
+        <%= text_field_tag :area, nil, placeholder: "エリア" %>
+      </div>
+      <div class = "keyward">
+        <i class="fas fa-search"></i>
+        <%= text_field_tag :keyward, nil, placeholder: "キーワード" %>
+      </div>
+      <%= submit_tag 'Search', class: "fidden" %>
+    <% end %>
+  </div>
+  <div class = "header-right">
+    <% if user_signed_in? %>
+      <div class = "user-name-icon">
+        <p><%= current_user.name %></p>
+        <% if current_user.image_name? %>
+          <%= image_tag current_user.image_name.url, class: "icon", id: "icon" %>
+        <% else %>
+          <%= image_tag "/assets/default_icon.jpeg", class: "icon", id: "icon" %>
+        <% end %>
+      </div>
+      <div class = "user-info" >
+        <div class = "user-menu">
+          <%= link_to "ルーム登録", new_room_path %>
+        </div>
+        <div class = "user-menu">
+          <%= link_to "予約済みルーム一覧", reservations_path %>   
+        </div>
+        <div class = "user-menu">
+          <%= link_to "登録済みルーム一覧", rooms_post_path %> 
+        </div>
+        <div class = "user-menu">
+          <%= link_to "設定", users_account_path %>
+        </div>
+        <div class = "user-menu">
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>  
+        </div>
+      </div>
+    <% else %>
+      <div class = "account-btn">
+        <%= link_to "ログイン", new_user_session_path, {class: "sign-in btn"} %>
+        <%= link_to "登録する", new_user_registration_path, {class: "sign-up btn"} %>
+      </div>
+    <% end %>
+
+  </div>
+</header>
+
+<script>
+  $(document).on('turbolinks:load', function() {
+    $("#icon").off("click")
+    $("#icon").on("click", function(){
+      $(".user-info").slideToggle();
+    })
+  });
+</script>

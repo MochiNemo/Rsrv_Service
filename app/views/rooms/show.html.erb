@@ -1,0 +1,43 @@
+<div class = "room-container">
+  <div class = "room-main">
+    
+    <div class = "left-info">
+      <div class = "room-image">
+        <%= image_tag @room.room_image.url %>
+      </div>
+      <div>
+        <div class = "icon-wrap">
+          <%= image_tag current_user.image_name.url, class: "icon" %>
+        </div>
+        <div  class = "intro-wrap">
+          <%= @room.introduction %>
+        </div>
+      </div>
+    </div>
+    <div class = "right-info">
+      
+      <div class = "right-cont" >
+        <%= render "shared/error", obj: @rsrv %>
+        
+        <div class = "price content"><%= @room.price %></div>
+        <%= form_for @rsrv, url: "/reservations/confirm", html: {method: "post"} do |f| %>
+          <div class = "content">
+            <%= f.label :start_date %>
+            <%= f.date_field:start_date %>
+          </div>
+          <div class = "content">
+            <%= f.label :end_date %>
+            <%= f.date_field:end_date %>
+          </div>
+          <div class = "content">
+            <%= f.label :person_num %>
+            <%= f.number_field:person_num %>
+          </div>
+          <%= f.hidden_field :user_id, value: current_user.id %>
+          <%= f.hidden_field :room_id, value: @room.id %>
+          <%= f.submit "予約する", 'data-disable-with' => false, class: "rsrv-btn" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<div class = "shows-container">
+
+  <%= render "shared/aside" %>
+
+  <div class = "shows-main">
+    <h3 class = "contents">アカウント</h3>
+        <div class = "contents">
+          <div class = "cnt-title">メールアドレス</div>
+          <div class = "form"><%= @user.email %></div>
+        </div>
+        <div class = "contents">
+          <div class = "cnt-title">パスワード</div>
+          <div class = "form pass">*********</div>
+        </div>
+      <div class = "contents">
+        <%= link_to "編集", edit_user_registration_path, class: "update-btn" %>
+      </div>
+  </div>
+</div>
